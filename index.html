@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastón González Iraeta</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #000000, #007bff, #00bfff, #b3ecff);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            line-height: 1.6;
+            animation: fade-in 2s ease;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            text-align: left;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: linear-gradient(to right, #007bff, #000000);
+            color: #fff;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            animation: slide-down 1s ease;
+            display: flex;
+            align-items: flex-start;
+            position: relative; /* Añadido para posicionar Montevideo, Uruguay */
+        }
+
+        @keyframes slide-down {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header .image-container {
+            width: 5cm; /* Tamaño deseado */
+            margin-right: 20px;
+        }
+
+        header .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        header .header-content {
+            flex: 1; /* Para ocupar todo el espacio restante */
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            margin-top: 0; /* Mover arriba */
+        }
+
+        header p {
+            font-size: 1.5em;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0;
+        }
+
+        .location {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #ffffff; /* Blanco */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+            font-style: italic; /* Itálico */
+            font-family: 'Times New Roman', serif;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            animation: slide-up 3s ease;
+        }
+
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 2; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            animation: border-fade 3s ease;
+            font-style: italic; /* Itálico */
+        }
+
+        @keyframes border-fade {
+            from { border-color: transparent; }
+            to { border-color: #007bff; }
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 3s ease;
+            cursor: pointer;
+            margin-right: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.2em;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fade-in 3s ease;
+        }
+
+        .active {
+            display: block;
+        }
+
+        ul {
+            padding-left: 20px;
+            font-size: 1.2em;
+        }
+
+        .icon-container {
+    text-align: center;
+    margin-top: 50px; /* Reducimos el margen superior */
+    animation: fade-in 3s ease;
+}
+
+.icon-container img {
+    width: 60px; /* Tamaño reducido de los íconos */
+    height: 60px; /* Tamaño reducido de los íconos */
+    margin: 0 40px; /* Separación entre los íconos */
+    cursor: pointer;
+    transition: transform 0,25s ease, box-shadow 0,5s ease;
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.icon-container img:hover {
+    transform: scale(1.1); /* Escalar ligeramente al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+        .study h3 {
+            font-size: 1.4em; /* Tamaño reducido */
+            margin-bottom: 20px;
+            color: #333;
+            font-style: italic; /* Itálico */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="image-container">
+                <img src="C:\Users\Usuario\Desktop\Pagina\WhatsApp Image 2024-06-05 at 08.42.13 (1).jpeg" class="special" alt="Foto de perfil">
+            </div>
+            <div class="header-content">
+                 <h1><em style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Gastón González Iraeta</em></h1>
+                <p><strong>Analista en Tecnologías de la Información / Técnico en Informatica</strong></p>
+                <p>En busca de crecimiento profesional en el área de desarrollo de software</p>
+                <div class="location"><em>Montevideo, Uruguay</em></div>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>Objetivo Profesional</h2>
+            <p>Mi objetivo es desarrollar mi carrera profesional en el área de desarrollo de software e infraestructura, perfeccionando y aplicando los conocimientos adquiridos a lo largo de mi formación académica y experiencia laboral. Actualmente estoy cursando la carrera de Analista en Tecnologías de la Información en Facultad de Ingeniería UDE avalada por el MEC, el cual, soy un estudiante avanzado en la carrera.</p>
+        </div>
+
+        <div class="section">
+            <h2>Experiencia Laboral</h2>
+            <p>He adquirido experiencia trabajando en imporantes empresas en informatica pricipalmente donde he podido aplicar mis conocimientos en infraestructura y desarrollo de software.</p>
+            <a href="experiencia.html" class="btn">Ver Experiencia Laboral</a>
+        </div>
+
+        <div class="section">
+            <h2>Educación</h2>
+            <div class="study">
+                <h3>Analista en Tecnologías de la Información, Facultad de Ingeniería UDE</h3>
+                <p>Estoy comprometido con mi educación en tecnologías de la información, buscando siempre aprender y aplicar nuevas tecnologías y metodologías.</p>
+                <a href="facultad.html" class="btn">Ver Materias</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Conocimientos en Infraestructura</h2>
+            <p>Aquí puedes encontrar una lista detallada de mis conocimientos en infraestructura, tales como configuración de redes, administración de servidores, virtualización, entre otros.</p>
+            <a href="#" class="btn" onclick="openTab(event, 'skills-tab')">Ver Conocimientos</a>
+            <div id="skills-tab" class="tab-content">
+                <h3>Conocimientos en Infraestructura</h3>
+                <ul>
+                    <li>Configuración y administración de redes.</li>
+                    <li>Administración de sistemas operativos (Windows y Linux).</li>
+                    <li>Virtualización y contenerización (VMware, Docker).</li>
+                    <li>Seguridad informática y protección de datos.</li>
+                    <li>Monitoreo y gestión de sistemas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 style="font-size: 1.8em; font-family: 'Times New Roman', serif;">Contacto</h2>
+            <div class="icon-container">
+                <a href="https://wa.me/091843685" target="_blank">
+                    <img src="C:\Users\gonzgast\Desktop\Paginas\whatsapp_icon-icons.com_53606.ico" alt="WhatsApp">
+                </a>
+                <a href="mailto:gastonjtg@gmail.com">
+                    <img src="C:\Users\gonzgast\Desktop\Paginas\Gmail_29991.ico" alt="Gmail">
+                </a>
+                <a href="https://linkedin.com/in/gaston-gonzalez-iraeta">
+                    <img src="C:\Users\gonzgast\Desktop\Paginas\3721674-linkedin_108053.ico" alt="LinkedIn">
+                </a>
+            </div>
+            <a href="#" class="btn">Descargar CV en PDF</a>
+        </div>
+    </div>
+
+    <script>
+        // Función para cambiar de pestaña y marcar el botón activo
+        function openTab(evt, tabName) {
+            evt.preventDefault();
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Animaciones adicionales para botones
+        document.querySelectorAll('.btn').forEach(function(btn) {
+            btn.addEventListener('mouseover', function() {
+                btn.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)';
+                btn.style.transform = 'scale(1.1)';
+            });
+            btn.addEventListener('mouseout', function() {
+                btn.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animaciones para iconos de contacto
+        document.querySelectorAll('.icon-container img').forEach(function(icon) {
+            icon.addEventListener('mouseover', function() {
+                icon.style.transform = 'scale(1.2) rotate(10deg)';
+                icon.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)';
+            });
+            icon.addEventListener('mouseout', function() {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+                icon.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
