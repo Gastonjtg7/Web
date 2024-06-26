@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             color: #333;
+            overflow-x: hidden;
         }
 
         .container {
@@ -41,7 +42,7 @@
             animation: slide-down 1s ease;
             display: flex;
             align-items: flex-start;
-            position: relative; /* Añadido para posicionar Montevideo, Uruguay */
+            position: relative;
         }
 
         @keyframes slide-down {
@@ -50,7 +51,7 @@
         }
 
         header .image-container {
-            width: 5cm; /* Tamaño deseado */
+            width: 5cm;
             margin-right: 20px;
         }
 
@@ -60,7 +61,7 @@
         }
 
         header .header-content {
-            flex: 1; /* Para ocupar todo el espacio restante */
+            flex: 1;
         }
 
         header h1 {
@@ -68,7 +69,7 @@
             margin-bottom: 10px;
             font-family: 'Times New Roman', serif;
             font-style: italic;
-            margin-top: 0; /* Mover arriba */
+            margin-top: 0;
         }
 
         header p {
@@ -84,9 +85,9 @@
             right: 20px;
             font-weight: bold;
             font-size: 1.2em;
-            color: #ffffff; /* Blanco */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
-            font-style: italic; /* Itálico */
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-style: italic;
             font-family: 'Times New Roman', serif;
         }
 
@@ -95,13 +96,14 @@
             padding: 40px;
             background-color: #f9f9f9;
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-            animation: slide-up 3s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: slide-up 1s ease;
+            position: relative;
         }
 
         @keyframes slide-up {
             from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 2; transform: translateY(0); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section h2 {
@@ -110,8 +112,8 @@
             margin-bottom: 15px;
             border-bottom: 2px solid #007bff;
             padding-bottom: 5px;
-            animation: border-fade 3s ease;
-            font-style: italic; /* Itálico */
+            animation: border-fade 1s ease;
+            font-style: italic;
         }
 
         @keyframes border-fade {
@@ -127,13 +129,14 @@
         .btn {
             display: inline-block;
             background-color: #007bff;
+            background-image: linear-gradient(to right, #007bff, #00bfff);
             color: #fff;
             padding: 12px 24px;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            margin-right: 10px;
+            margin-top: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             font-size: 1.2em;
         }
@@ -150,7 +153,7 @@
             background-color: #f9f9f9;
             border-radius: 0 0 20px 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            animation: fade-in 3s ease;
+            animation: fade-in 1s ease;
         }
 
         .active {
@@ -163,31 +166,47 @@
         }
 
         .icon-container {
-    text-align: center;
-    margin-top: 50px; /* Reducimos el margen superior */
-    animation: fade-in 3s ease;
-}
+            text-align: center;
+            margin-top: 30px;
+            animation: fade-in 1s ease;
+        }
 
-.icon-container img {
-    width: 60px; /* Tamaño reducido de los íconos */
-    height: 60px; /* Tamaño reducido de los íconos */
-    margin: 0 40px; /* Separación entre los íconos */
-    cursor: pointer;
-    transition: transform 0,25s ease, box-shadow 0,5s ease;
-    border-radius: 10px; /* Borde redondeado */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-}
+        .icon-container img {
+            width: 60px;
+            height: 60px;
+            margin: 0 20px;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.5s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-.icon-container img:hover {
-    transform: scale(1.1); /* Escalar ligeramente al pasar el mouse */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-}
+        .icon-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
         .study h3 {
-            font-size: 1.4em; /* Tamaño reducido */
+            font-size: 1.4em;
             margin-bottom: 20px;
             color: #333;
-            font-style: italic; /* Itálico */
+            font-style: italic;
+        }
+
+        /* Icono de sección */
+        .icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 30px;
+            color: #007bff;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
     </style>
 </head>
@@ -195,63 +214,96 @@
     <div class="container">
         <header>
             <div class="image-container">
-                <img src="C:\Users\Usuario\Desktop\Pagina\WhatsApp Image 2024-06-05 at 08.42.13 (1).jpeg" class="special" alt="Foto de perfil">
+                <img src="C:\Users\Usuario\Desktop\Pagina\WhatsApp Image 2024-06-05 at 08.42.13 (1).jpeg" alt="Foto de perfil">
             </div>
             <div class="header-content">
-                 <h1><em style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Gastón González Iraeta</em></h1>
+                <h1><em style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Gastón González Iraeta</em></h1>
                 <p><strong>Analista en Tecnologías de la Información / Técnico en Informatica</strong></p>
                 <p>En busca de crecimiento profesional en el área de desarrollo de software</p>
                 <div class="location"><em>Montevideo, Uruguay</em></div>
+                 <div class="location" id="lottie-animation" style="width: 400px; height: 300px;"></div>
             </div>
         </header>
 
         <div class="section">
+            <span class="icon">🎯</span>
             <h2>Objetivo Profesional</h2>
-            <p>Mi objetivo es desarrollar mi carrera profesional en el área de desarrollo de software e infraestructura, perfeccionando y aplicando los conocimientos adquiridos a lo largo de mi formación académica y experiencia laboral. Actualmente estoy cursando la carrera de Analista en Tecnologías de la Información en Facultad de Ingeniería UDE avalada por el MEC, el cual, soy un estudiante avanzado en la carrera.</p>
+            <p>Mi objetivo es desarrollar mi carrera profesional en el área de desarrollo de software, aplicando los conocimientos adquiridos durante mi formación académica y experiencia laboral. Actualmente estoy cursando la carrera de Analista en Tecnologías de la Información en la Facultad de Ingeniería UDE, avalada por el MEC, donde he avanzado significativamente en mi preparación técnica. Me interesa especialmente trabajar en proyectos que me permitan implementar soluciones innovadoras y eficientes, aplicando metodologías ágiles y contribuyendo al crecimiento tecnológico de las organizaciones. Tengo 25 años y estoy entusiasmado por enfrentar nuevos desafíos y proyectos en el campo de las tecnologías de la información.</p>
         </div>
 
         <div class="section">
+            <span class="icon">💼</span>
             <h2>Experiencia Laboral</h2>
-            <p>He adquirido experiencia trabajando en imporantes empresas en informatica pricipalmente donde he podido aplicar mis conocimientos en infraestructura y desarrollo de software.</p>
+            <p>He adquirido una sólida experiencia laboral en reconocidas empresas del ámbito informático, donde he tenido la oportunidad de aplicar de manera efectiva mis habilidades y conocimientos en el desarrollo de software y la gestión de infraestructuras tecnológicas. Esta experiencia me ha permitido no solo fortalecer mis competencias técnicas, sino también desarrollar una comprensión profunda de los desafíos y las dinámicas del sector.</p>
             <a href="experiencia.html" class="btn">Ver Experiencia Laboral</a>
         </div>
 
         <div class="section">
+            <span class="icon">📚</span>
             <h2>Educación</h2>
             <div class="study">
-                <h3>Analista en Tecnologías de la Información, Facultad de Ingeniería UDE</h3>
-                <p>Estoy comprometido con mi educación en tecnologías de la información, buscando siempre aprender y aplicar nuevas tecnologías y metodologías.</p>
+                <h3>Estudiante avanzado de Analista en Tecnologías de la Información, Facultad de Ingeniería UDE</h3>
+                <p>Estoy comprometido con mi educación en Tecnologías de la Información, donde me dedico activamente a profundizar mis conocimientos en tecnología. Mi enfoque se centra en explorar y aplicar nuevas tecnologías y metodologías, con el objetivo de desarrollar una base sólida para enfrentar los retos tecnológicos emergentes con eficacia y creatividad.</p>
                 <a href="facultad.html" class="btn">Ver Materias</a>
             </div>
         </div>
 
         <div class="section">
+            <span class="icon">💻</span>
+            <h2>Conocimientos en Desarrollo</h2>
+            <p>Aquí puedes encontrar una lista detallada de mis conocimientos en desarrollo de software, tales como lenguajes de programación, frameworks, metodologías ágiles, entre otros.</p>
+            <a href="#" class="btn" onclick="openTab(event, 'development-tab')">Ver Conocimientos</a>
+            <div id="development-tab" class="tab-content">
+                <h3>Conocimientos en Desarrollo</h3>
+                <ul>
+                    <li>Lenguajes de programación: Java, PHP, .NET.</li>
+                    <li>Desarrollo web: HTML, CSS, Javascript.</li>
+                    <li>Desarrollo móvil: Android.</li>
+                    <li>Metodologías ágiles: Scrum.</li>
+                    <li>Control de versiones: GitHub.</li>
+                    <li>Base de datos: MySQL, SQL, SQLite</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <span class="icon">🔧</span>
             <h2>Conocimientos en Infraestructura</h2>
             <p>Aquí puedes encontrar una lista detallada de mis conocimientos en infraestructura, tales como configuración de redes, administración de servidores, virtualización, entre otros.</p>
             <a href="#" class="btn" onclick="openTab(event, 'skills-tab')">Ver Conocimientos</a>
             <div id="skills-tab" class="tab-content">
                 <h3>Conocimientos en Infraestructura</h3>
                 <ul>
-                    <li>Configuración y administración de redes.</li>
-                    <li>Administración de sistemas operativos (Windows y Linux).</li>
-                    <li>Virtualización y contenerización (VMware, Docker).</li>
-                    <li>Seguridad informática y protección de datos.</li>
-                    <li>Monitoreo y gestión de sistemas.</li>
+                    <li>Microsoft Windows Server (DNS, AD, File Server, Print Server, Virtual Servers, DHCP)</li>
+                    <li>Administración de sistemas operativos Windows.</li>
+                    <li>Mantenimiento y control de la infraestructura</li>
+                    <li>Reparación y diagnosticos de computadoras, cableado, impresoras (Epson, HP y Samsung), y telefonía VoIP (servicio 3CX).</li>
+                    <li>Soporte de Aplicaciones (Genexus, aplicaciones web, entre muchas más)</li>
+                    <li>Networking, monitoreo y gestión de sistemas.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
+            <span class="icon">🌐</span>
+            <h2>Idioma</h2>
+            <p><strong>Español: Nativo</strong></p>
+            <p><strong>Inglés: Nivel B1</strong> - Instituto Cultural Anglo-Uruguayo, Cambridge English</em></p>
+        </div>
+
+        <div class="section">
+            <span class="icon">📞</span>
             <h2 style="font-size: 1.8em; font-family: 'Times New Roman', serif;">Contacto</h2>
+            <h3><em>Estoy a su disposición para cualquier consulta</em></h3>
             <div class="icon-container">
                 <a href="https://wa.me/091843685" target="_blank">
-                    <img src="C:\Users\gonzgast\Desktop\Paginas\whatsapp_icon-icons.com_53606.ico" alt="WhatsApp">
+                    <img src="C:\Users\Usuario\Desktop\Pagina\whatsapp_icon-icons.com_53606.ico" alt="WhatsApp">
                 </a>
                 <a href="mailto:gastonjtg@gmail.com">
-                    <img src="C:\Users\gonzgast\Desktop\Paginas\Gmail_29991.ico" alt="Gmail">
+                    <img src="C:\Users\Usuario\Desktop\Pagina\Gmail_29991.ico" alt="Gmail">
                 </a>
                 <a href="https://linkedin.com/in/gaston-gonzalez-iraeta">
-                    <img src="C:\Users\gonzgast\Desktop\Paginas\3721674-linkedin_108053.ico" alt="LinkedIn">
+                    <img src="C:\Users\Usuario\Desktop\Pagina\3721674-linkedin_108053.ico" alt="LinkedIn">
                 </a>
             </div>
             <a href="#" class="btn">Descargar CV en PDF</a>
@@ -296,6 +348,47 @@
             icon.addEventListener('mouseout', function() {
                 icon.style.transform = 'scale(1) rotate(0deg)';
                 icon.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+            });
+        });
+
+        // Animaciones para secciones
+        document.addEventListener("DOMContentLoaded", function() {
+            var sections = document.querySelectorAll(".section");
+            sections.forEach(function(section, index) {
+                section.style.animationDelay = (index * 0.2) + "s";
+            });
+        });
+    </script>
+    <!-- Enlace a la librería de animaciones Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script>
+        // Cargar animación Lottie
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'), // Contenedor
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets6.lottiefiles.com/packages/lf20_w51pcehl.json' // Ruta del archivo JSON de la animación
+        });
+
+        // JavaScript adicional para animaciones de iconos
+        document.querySelectorAll('.icon').forEach(function(icon) {
+            icon.addEventListener('mouseover', function() {
+                icon.style.color = '#ff6347'; // Cambiar el color del icono al pasar el mouse
+            });
+            icon.addEventListener('mouseout', function() {
+                icon.style.color = '#007bff'; // Restaurar el color original al quitar el mouse
+            });
+        });
+
+        document.querySelectorAll('.icon-container img').forEach(function(img) {
+            img.addEventListener('mouseover', function() {
+                img.style.transform = 'scale(1.1)'; // Agrandar el icono al pasar el mouse
+                img.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)'; // Agregar sombra
+            });
+            img.addEventListener('mouseout', function() {
+                img.style.transform = 'scale(1)'; // Restaurar el tamaño original al quitar el mouse
+                img.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)'; // Restaurar sombra original
             });
         });
     </script>
